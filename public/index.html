@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="tok">
+<head>
+
+    <meta charset="utf-8">
+	<title>Toki Pona Sentence Generator</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" charset="utf-8"/>
+    <!--<link rel="icon" href="img/TomatoRadioIcon.ico"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<script src="words.js" fetchpriority="high"></script>
+<script src="sentenceGenerator.js" fetchpriority="high"></script>
+<script>
+    function toggleBackground() {
+        const bg = document.getElementById("bg");
+        if (bg.style.opacity == "0") {
+            bg.style.opacity = "100%";
+        } else {
+            bg.style.opacity = "0%";
+        }
+    };
+</script>
+<img class="background" src="bg.jpg" id="bg" width="1920" height="2280" active>
+<button class="bubble bg-toggle" onclick="toggleBackground()">sitelen</button>
+<body>
+    <div class="col">
+        <h1 class="bubble">o mama e kulupu nimi pi(toki-pona)a</h1>
+        <div class="result bubble">
+            <strong>te</strong><p></p><p></p>
+            <p></p><p id="sentence">toki ni li kama ante kepeken(nasin ala)</p><p></p>
+            <p></p><p></p><strong>to</strong>
+        </div>
+        <button class="bubble" onclick="randomSentence()">o mama a</button>
+        <div class="bubble info">
+            ilo ni li mama e kulupu toki kepeken(nasin ala).
+            o luka e sinpin te o mama a to. kulupu toki li kama lon
+            <hr>
+            ilo ni li ken mama e
+            <ul>
+                <li>nimi [LASINA]</li>
+                <li>wile sona kepeken(te seme to) kepeken (te {ijo}ala(ijo) to)</li>
+                <li>nimi linluwi</li>
+                <li>nimi [la] en nimi [pi]</li>
+                <li>nimi ale lon <a href="https://linku.la/" target="_blank">lipu Linku</a></li>
+            </ul>
+            <hr>
+            ilo ni li ken ala mama e
+            <ul>
+                <li>kulupu toki lon(la)</li>
+                <li>kipisi pi(kulupu toki) mute</li>
+                <li>sitelen nimi linluwi</li>
+                <li>nimi [LASINA] kepeken(sitelen-pona)</li>
+                <li>nimi [anu] en nimi [en]</li>
+            </ul>
+        </div>
+        <a class="bubble link" href="https://tomatoradio.github.io/profile" target="_blank"><p>tan ilo kalama pi(kili-loje)</p><img src="88x15.png" width="176" height="30" alt="Broadcast to you by TomatoRadio"></a>
+        <div class="bubble info">
+            ijo-pona ante ni8 li pona e lipu ni3
+            <hr>
+            <ul>
+                <li><a href="https://linku.la/" target="_blank">
+                    lipu Linku</a> li kulupu e nimi ale</li>
+                <li><a href="https://www.kreativekorp.com/software/fonts/sitelenselikiwen/" target="_blank">
+                    Lepeka</a> li mama e sitelen&seli&kiwen</li>
+                <li><a href="https://www.pexels.com/photo/serene-waterfall-cascading-in-rocky-landscape-38039003/" target="_blank">
+                    jan[SANIPE]</a> li mama e sitelen monsi</li>
+                <li><a href="https://x.com/biggiecheese406?s=11" target="_blank">
+                    misa[BIGGIE&nbspCHEESE]</a> li epiku suli</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <h1 class="bubble">o ante e nasin tawa pona sina</h1>
+        <div class="bubble" style="align-self: center;">
+            <fieldset>
+                <legend>ante pi(nanpa-seme)</legend>
+                <div>
+                    <div>
+                        <input type="number" id="cfgModMin" name="cfgModMin" value="0" class="bubble" min="0" max="5"/>
+                        <label for="cfgModMin">nanpa lili</label>
+                    </div>
+                    <div>
+                        <input type="number" id="cfgModMax" name="cfgModMax" value="2" class="bubble" min="0" max="5"/>
+                        <label for="cfgModMax">nanpa suli</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>kulupu seme</legend>
+                <div>
+                    <div>
+                        <input type="checkbox" id="cfgNimiCore" name="cfgNimiCore" value="true" checked/>
+                        <label for="cfgNimiCore">lawa</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgNimiCommon" name="cfgNimiCommon" value="true" checked/>
+                        <label for="cfgNimiCommon">suli</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgNimiUncommon" name="cfgNimiUncommon" value="true"/>
+                        <label for="cfgNimiUncommon">meso</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgNimiObscure" name="cfgNimiObscure" value="true"/>
+                        <label for="cfgNimiObscure">lili</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>ijo seme</legend>
+                <div>
+                    <div>
+                        <input type="checkbox" id="cfgLasina" name="cfgLasina" value="true" checked/>
+                        <label for="cfgLasina">nimi [LASINA]</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgPi" name="cfgPi" value="true" checked/>
+                        <label for="cfgPi">pi</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgUnpa" name="cfgUnpa" value="true" checked/>
+                        <label for="cfgUnpa">unpa</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgSeme" name="cfgSeme" value="true" checked/>
+                        <label for="cfgSeme">seme</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgIjoAlaIjo" name="cfgIjoAlaIjo" value="true" checked/>
+                        <label for="cfgIjoAlaIjo">{ijo}ala(ijo)</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgLa" name="cfgLa" value="true" checked/>
+                        <label for="cfgLa">la</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgPreposition" name="cfgPreposition" value="true" checked/>
+                        <label for="cfgPreposition">nimi linluwi</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgBook" name="cfgBook" value="true" checked/>
+                        <label for="cfgBook">pu ku su</label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>kule seme</legend>
+                <div style="justify-content: space-around;">
+                    <div>
+                        <input type="checkbox" id="cfgA1" name="cfgA1" value="true" checked/>
+                        <label for="cfgA1">a1</label>
+                        <input type="checkbox" id="cfgA3" name="cfgA3" value="true" checked/>
+                        <label for="cfgA3">a3</label>
+                        <input type="checkbox" id="cfgA4" name="cfgA4" value="true" checked/>
+                        <label for="cfgA4">a4</label>
+                        <input type="checkbox" id="cfgA5" name="cfgA5" value="true" checked/>
+                        <label for="cfgA5">a5</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgAkesi1" name="cfgAkesi1" value="true" checked/>
+                        <label for="cfgAkesi1">akesi1</label>
+                        <input type="checkbox" id="cfgAkesi2" name="cfgAkesi2" value="true" checked/>
+                        <label for="cfgAkesi2">akesi2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgKala1" name="cfgKala1" value="true" checked/>
+                        <label for="cfgKala1">kala1</label>
+                        <input type="checkbox" id="cfgKala2" name="cfgKala2" value="true" checked/>
+                        <label for="cfgKala2">kala2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgMoli1" name="cfgMoli1" value="true" checked/>
+                        <label for="cfgMoli1">moli1</label>
+                        <input type="checkbox" id="cfgMoli2" name="cfgMoli2" value="true" checked/>
+                        <label for="cfgMoli2">moli2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgMu1" name="cfgMu1" value="true" checked/>
+                        <label for="cfgMu1">mu1</label>
+                        <input type="checkbox" id="cfgMu2" name="cfgMu2" value="true" checked/>
+                        <label for="cfgMu2">mu2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgMusi1" name="cfgMusi1" value="true" checked/>
+                        <label for="cfgMusi1">musi1</label>
+                        <input type="checkbox" id="cfgMusi2" name="cfgMusi2" value="true" checked/>
+                        <label for="cfgMusi2">musi2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgMute1" name="cfgMute1" value="true" checked/>
+                        <label for="cfgMute1">mute1</label>
+                        <input type="checkbox" id="cfgMute2" name="cfgMute2" value="true" checked/>
+                        <label for="cfgMute2">mute2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgSewi1" name="cfgSewi1" value="true" checked/>
+                        <label for="cfgSewi1">sewi1</label>
+                        <input type="checkbox" id="cfgSewi2" name="cfgSewi2" value="true" checked/>
+                        <label for="cfgSewi2">sewi2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgUta1" name="cfgUta1" value="true" checked/>
+                        <label for="cfgUta1">uta1</label>
+                        <input type="checkbox" id="cfgUta2" name="cfgUta2" value="true" checked/>
+                        <label for="cfgUta2">uta2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgWile1" name="cfgWile1" value="true" checked/>
+                        <label for="cfgWile1">wile1</label>
+                        <input type="checkbox" id="cfgWile2" name="cfgWile2" value="true" checked/>
+                        <label for="cfgWile2">wile2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgOlin0" name="cfgOlin0" value="true" checked/>
+                        <label for="cfgOlin0">olin0</label>
+                        <input type="checkbox" id="cfgOlin1" name="cfgOlin1" value="true" checked/>
+                        <label for="cfgOlin1">olin1</label>
+                        <input type="checkbox" id="cfgOlin2" name="cfgOlin2" value="true" checked/>
+                        <label for="cfgOlin2">olin2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgPronoun1" name="cfgPronoun1" value="true" checked/>
+                        <label for="cfgPronoun1">mi1 sina1 ona1</label>
+                        <input type="checkbox" id="cfgPronoun2" name="cfgPronoun2" value="true" checked/>
+                        <label for="cfgPronoun2">mi2 sina2 ona2</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="cfgMajuna1" name="cfgMajuna1" value="true" checked/>
+                        <label for="cfgMajuna1">majuna1</label>
+                        <input type="checkbox" id="cfgMajuna2" name="cfgMajuna2" value="true" checked/>
+                        <label for="cfgMajuna2">majuna2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgMisikeke1" name="cfgMisikeke1" value="true" checked/>
+                        <label for="cfgMisikeke1">misikeke1</label>
+                        <input type="checkbox" id="cfgMisikeke2" name="cfgMisikeke2" value="true" checked/>
+                        <label for="cfgMisikeke2">misikeke2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgNamako1" name="cfgNamako1" value="true" checked/>
+                        <label for="cfgNamako1">namako1</label>
+                        <input type="checkbox" id="cfgNamako2" name="cfgNamako2" value="true" checked/>
+                        <label for="cfgNamako2">namako2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgSoko1" name="cfgSoko1" value="true" checked/>
+                        <label for="cfgSoko1">soko1</label>
+                        <input type="checkbox" id="cfgSoko3" name="cfgSoko3" value="true" checked/>
+                        <label for="cfgSoko3">soko3</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgGender1" name="cfgGender1" value="true" checked/>
+                        <label for="cfgGender1">meli1 mije1 tonsi1</label>
+                        <input type="checkbox" id="cfgGender2" name="cfgGender2" value="true" checked/>
+                        <label for="cfgGender2">meli2 mije2 tonsi2</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="cfgEpiku1" name="cfgEpiku1" value="true" checked/>
+                        <label for="cfgEpiku1">epiku1</label>
+                        <input type="checkbox" id="cfgEpiku2" name="cfgEpiku2" value="true" checked/>
+                        <label for="cfgEpiku2">epiku2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgMeso1" name="cfgMeso1" value="true" checked/>
+                        <label for="cfgMeso1">meso1</label>
+                        <input type="checkbox" id="cfgMeso2" name="cfgMeso2" value="true" checked/>
+                        <label for="cfgMeso2">meso2</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgLanpan1" name="cfgLanpan1" value="true" checked/>
+                        <label for="cfgLanpan1">lanpan1</label>
+                        <input type="checkbox" id="cfgLanpan2" name="cfgLanpan2" value="true" checked/>
+                        <label for="cfgLanpan2">lanpan2</label>
+                        <input type="checkbox" id="cfgLanpan3" name="cfgLanpan3" value="true" checked/>
+                        <label for="cfgLanpan3">lanpan3</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgLinluwi1" name="cfgLinluwi1" value="true" checked/>
+                        <label for="cfgLinluwi1">linluwi1</label>
+                        <input type="checkbox" id="cfgLinluwi2" name="cfgLinluwi2" value="true" checked/>
+                        <label for="cfgLinluwi2">linluwi2</label>
+                        <input type="checkbox" id="cfgLinluwi3" name="cfgLinluwi3" value="true" checked/>
+                        <label for="cfgLinluwi3">linluwi3</label>
+                        <input type="checkbox" id="cfgLinluwi4" name="cfgLinluwi4" value="true" checked/>
+                        <label for="cfgLinluwi4">linluwi4</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgSu1" name="cfgSu1" value="true" checked/>
+                        <label for="cfgSu1">su1</label>
+                        <input type="checkbox" id="cfgSu2" name="cfgSu2" value="true" checked/>
+                        <label for="cfgSu2">su2</label>
+                        <input type="checkbox" id="cfgSu3" name="cfgSu3" value="true" checked/>
+                        <label for="cfgSu3">su3</label>
+                    </div>
+                    <hr>
+                    <div>
+                        <input type="checkbox" id="cfgKiki1" name="cfgKiki1" value="true" checked/>
+                        <label for="cfgKiki1">kiki1</label>
+                        <input type="checkbox" id="cfgKiki2" name="cfgKiki2" value="true" checked/>
+                        <label for="cfgKiki2">kiki2</label>
+                        <input type="checkbox" id="cfgKiki3" name="cfgKiki3" value="true" checked/>
+                        <label for="cfgKiki3">kiki3</label>
+                        <input type="checkbox" id="cfgKiki4" name="cfgKiki4" value="true" checked/>
+                        <label for="cfgKiki4">kiki4</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cfgKokosila1" name="cfgKokosila1" value="true" checked/>
+                        <label for="cfgKokosila1">kokosila1</label>
+                        <input type="checkbox" id="cfgKokosila2" name="cfgKokosila2" value="true" checked/>
+                        <label for="cfgKokosila2">kokosila2</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</body>
+</html>
